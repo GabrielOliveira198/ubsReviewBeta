@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ModelCreateDlg" widgetVar="ModelCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateModelTitle}">
+            <h:form id="ModelCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{modelController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateModelLabel_codCnes}" for="codCnes" />
+                        <p:inputText id="codCnes" value="#{modelController.selected.codCnes}" title="#{bundle.CreateModelTitle_codCnes}" required="true" requiredMessage="#{bundle.CreateModelRequiredMessage_codCnes}"/>
+                        <p:outputLabel value="#{bundle.CreateModelLabel_codMunic}" for="codMunic" />
+                        <p:inputText id="codMunic" value="#{modelController.selected.codMunic}" title="#{bundle.CreateModelTitle_codMunic}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_dscAdapDeficFisicIdosos}" for="dscAdapDeficFisicIdosos" />
+                        <p:inputText id="dscAdapDeficFisicIdosos" value="#{modelController.selected.dscAdapDeficFisicIdosos}" title="#{bundle.CreateModelTitle_dscAdapDeficFisicIdosos}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_dscBairro}" for="dscBairro" />
+                        <p:inputText id="dscBairro" value="#{modelController.selected.dscBairro}" title="#{bundle.CreateModelTitle_dscBairro}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_dscCidade}" for="dscCidade" />
+                        <p:inputText id="dscCidade" value="#{modelController.selected.dscCidade}" title="#{bundle.CreateModelTitle_dscCidade}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_dscEndereco}" for="dscEndereco" />
+                        <p:inputText id="dscEndereco" value="#{modelController.selected.dscEndereco}" title="#{bundle.CreateModelTitle_dscEndereco}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_dscEquipamentos}" for="dscEquipamentos" />
+                        <p:inputText id="dscEquipamentos" value="#{modelController.selected.dscEquipamentos}" title="#{bundle.CreateModelTitle_dscEquipamentos}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_dscEstrutFisicAmbiencia}" for="dscEstrutFisicAmbiencia" />
+                        <p:inputText id="dscEstrutFisicAmbiencia" value="#{modelController.selected.dscEstrutFisicAmbiencia}" title="#{bundle.CreateModelTitle_dscEstrutFisicAmbiencia}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_dscMedicamentos}" for="dscMedicamentos" />
+                        <p:inputText id="dscMedicamentos" value="#{modelController.selected.dscMedicamentos}" title="#{bundle.CreateModelTitle_dscMedicamentos}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_dscTelefone}" for="dscTelefone" />
+                        <p:inputText id="dscTelefone" value="#{modelController.selected.dscTelefone}" title="#{bundle.CreateModelTitle_dscTelefone}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_nomEstab}" for="nomEstab" />
+                        <p:inputText id="nomEstab" value="#{modelController.selected.nomEstab}" title="#{bundle.CreateModelTitle_nomEstab}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_vlrLatitude}" for="vlrLatitude" />
+                        <p:inputText id="vlrLatitude" value="#{modelController.selected.vlrLatitude}" title="#{bundle.CreateModelTitle_vlrLatitude}" />
+                        <p:outputLabel value="#{bundle.CreateModelLabel_vlrLongitude}" for="vlrLongitude" />
+                        <p:inputText id="vlrLongitude" value="#{modelController.selected.vlrLongitude}" title="#{bundle.CreateModelTitle_vlrLongitude}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{modelController.create}" value="#{bundle.Save}" update="display,:ModelListForm:datalist,:growl" oncomplete="handleSubmit(args,'ModelCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ModelCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
